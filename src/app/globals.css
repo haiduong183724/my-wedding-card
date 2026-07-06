@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* ── Wedding color tokens ── */
+@theme {
+  --color-sage:         #7FA870;
+  --color-sage-deep:    #4E7040;
+  --color-sage-panel:   #3A5C30;
+  --color-sage-pale:    #C8DEC0;
+  --color-sage-bg:      #EDF4E8;
+  --color-sage-light:   #F3F8F0;
+  --color-champagne:    #C9A87A;
+  --color-champagne-lt: #F5EDE0;
+  --color-cream:        #FDFAF5;
+  --color-w-text:       #2B3A24;
+  --color-w-muted:      #5A6B52;
+  --font-display:       var(--font-cormorant);
+}
+
+/* ── Base ── */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: theme(--color-cream);
+  color: theme(--color-w-text);
+  overflow-x: hidden;
+}
+
+/* ── Botanical divider SVG ── */
+.botanical-divider {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='24' viewBox='0 0 120 24'%3E%3Cpath d='M0 12 Q15 4 30 12 Q45 20 60 12 Q75 4 90 12 Q105 20 120 12' stroke='%23C8DEC0' stroke-width='1' fill='none'/%3E%3Ccircle cx='60' cy='12' r='3' fill='%23C9A87A'/%3E%3Ccircle cx='30' cy='12' r='2' fill='%23C8DEC0'/%3E%3Ccircle cx='90' cy='12' r='2' fill='%23C8DEC0'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 24px;
+}
+
+/* ── Custom animations ── */
+@keyframes scrollBar {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-14px) rotate(8deg); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-10px) rotate(-6deg); }
+}
+@keyframes petalFall {
+  0%   { transform: translateY(-40px) translateX(0px) rotate(0deg); opacity: 0.9; }
+  100% { transform: translateY(110vh)  translateX(40px) rotate(540deg); opacity: 0; }
+}
+@keyframes shimmer {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes flip {
+  0%   { transform: rotateX(0deg); }
+  50%  { transform: rotateX(-90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+.animate-scroll-bar { animation: scrollBar 2s ease-in-out infinite; }
+.animate-float      { animation: float  4s ease-in-out infinite; }
+.animate-float2     { animation: float2 5s ease-in-out infinite; }
+.animate-shimmer    { animation: shimmer 2.5s ease-in-out infinite; }
+.animate-petal      { animation: petalFall linear infinite; }
+.animate-spin-slow  { animation: spin 4s linear infinite; display: inline-flex; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Cover overlay ── */
+#cover-overlay.hidden-cover {
+  opacity: 0;
+  transform: translateY(-40px);
+  pointer-events: none;
+}
+
+/* ── Font utility ── */
+.font-display { font-family: var(--font-display), Georgia, serif; }
