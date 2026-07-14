@@ -10,11 +10,27 @@ export default function RSVPSection() {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState<FormState>({ name: "", phone: "", side: "", count: "1" });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => { setOpen(false); setSent(false); setForm({ name: "", phone: "", side: "", count: "1" }); }, 3500);
+    setSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      setSent(true);
+      setTimeout(() => { setOpen(false); setSent(false); setForm({ name: "", phone: "", side: "", count: "1" }); }, 3500);
+    } catch {
+      setError("Gửi thất bại, vui lòng thử lại.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -166,13 +182,18 @@ export default function RSVPSection() {
                         </select>
                       </div>
 
+                      {/* Error */}
+                      {error && (
+                        <p className="text-red-500 text-xs text-center">{error}</p>
+                      )}
+
                       {/* Submit */}
                       <button
                         type="submit"
-                        disabled={!form.name || !form.side}
+                        disabled={!form.name || !form.side || submitting}
                         className="w-full bg-sage-deep text-white py-3.5 text-sm tracking-[0.16em] uppercase hover:bg-sage transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed mt-2"
                       >
-                        Xác Nhận
+                        {submitting ? "Đang gửi..." : "Xác Nhận"}
                       </button>
                     </motion.form>
                   )}

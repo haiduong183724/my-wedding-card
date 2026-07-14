@@ -14,6 +14,7 @@
   --color-w-text:       #2B3A24;
   --color-w-muted:      #5A6B52;
   --font-display:       var(--font-cormorant);
+  --font-heading:       var(--font-playfair);
 }
 
 /* ── Base ── */
@@ -86,3 +87,4 @@ body {
 
 /* ── Font utility ── */
 .font-display { font-family: var(--font-display), Georgia, serif; }
+.font-heading { font-family: var(--font-heading), Georgia, serif; }

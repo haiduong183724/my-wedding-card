@@ -12,14 +12,30 @@ export default function Guestbook() {
   const [text, setText] = useState("");
   const idPrefix = useId();
   const [counter, setCounter] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim() || !text.trim()) return;
-    setMessages((m) => [{ id: `${idPrefix}-${counter}`, name: name.trim(), text: text.trim() }, ...m]);
-    setCounter((c) => c + 1);
-    setName("");
-    setText("");
+    setSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch("/api/guestbook", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), text: text.trim() }),
+      });
+      if (!res.ok) throw new Error();
+      setMessages((m) => [{ id: `${idPrefix}-${counter}`, name: name.trim(), text: text.trim() }, ...m]);
+      setCounter((c) => c + 1);
+      setName("");
+      setText("");
+    } catch {
+      setError("Gửi thất bại, vui lòng thử lại.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -62,12 +78,14 @@ export default function Guestbook() {
             />
           </div>
 
+          {error && <p className="text-red-500 text-xs text-center">{error}</p>}
+
           <button
             type="submit"
-            disabled={!name.trim() || !text.trim()}
+            disabled={!name.trim() || !text.trim() || submitting}
             className="w-full bg-sage-deep text-white py-3.5 text-sm tracking-[0.16em] uppercase hover:bg-sage transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            Gửi Lời Chúc
+            {submitting ? "Đang gửi..." : "Gửi Lời Chúc"}
           </button>
         </motion.form>
 

@@ -22,7 +22,7 @@ export default function HeroStrip() {
         transition={{ delay: 0.6, duration: 0.9 }}
         className="absolute bottom-10 inset-x-0 text-center text-white"
       >
-        <p className="font-display text-3xl sm:text-4xl font-light tracking-widest">
+        <p className="font-heading text-3xl sm:text-4xl font-semibold tracking-widest">
           Hải Dương <span className="text-champagne mx-1">&amp;</span> Trà My
         </p>
         <p className="text-xs tracking-[0.25em] opacity-75 mt-2">

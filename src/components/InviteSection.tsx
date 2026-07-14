@@ -31,7 +31,7 @@ export default function InviteSection() {
             </p>
 
             {/* Names */}
-            <p className="font-display text-2xl sm:text-3xl text-sage-deep tracking-wider my-6 leading-relaxed">
+            <p className="font-heading text-2xl sm:text-3xl font-semibold text-sage-deep tracking-wider my-6 leading-relaxed">
               Nguyễn Đình Hải Dương
               <span className="text-champagne mx-3">&amp;</span>
               Phạm Thị Trà My

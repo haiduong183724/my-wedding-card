@@ -69,7 +69,7 @@ export default function Cover({ onOpen, isOpen, onExitComplete }: Props) {
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  className="font-display text-4xl sm:text-5xl font-light text-w-text tracking-wide leading-none"
+                  className="font-heading text-4xl sm:text-5xl font-semibold text-w-text tracking-wide leading-none"
                 >
                   Hải Dương
                 </motion.h1>
@@ -84,7 +84,7 @@ export default function Cover({ onOpen, isOpen, onExitComplete }: Props) {
                   initial={{ opacity: 0, x: 16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.55, duration: 0.8 }}
-                  className="font-display text-4xl sm:text-5xl font-light text-w-text tracking-wide leading-none"
+                  className="font-heading text-4xl sm:text-5xl font-semibold text-w-text tracking-wide leading-none"
                 >
                   Trà My
                 </motion.h1>

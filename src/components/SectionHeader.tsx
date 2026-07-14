@@ -23,7 +23,7 @@ export default function SectionHeader({ eyebrow, title, light }: Props) {
       <span className={`block font-display text-xs tracking-[0.32em] uppercase mb-3 ${textColor}`}>
         {eyebrow}
       </span>
-      <h2 className={`font-display text-3xl sm:text-4xl font-light tracking-wide ${titleColor}`}>
+      <h2 className={`font-heading text-3xl sm:text-4xl font-semibold tracking-wide ${titleColor}`}>
         {title}
       </h2>
       <div className="flex items-center justify-center gap-3 mt-4 max-w-[180px] mx-auto">
