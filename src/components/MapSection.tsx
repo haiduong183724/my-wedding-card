@@ -26,17 +26,31 @@ function VenueCard({ venue, delay }: { venue: (typeof WEDDING.venues)["groom"]; 
       <p className="font-display text-lg text-white/80 italic mb-2">{venue.name}</p>
       <p className="text-white/60 text-sm mb-6">{venue.address}</p>
 
-      {/* Map preview placeholder */}
-      <div className="relative overflow-hidden bg-sage-deep/40 border border-white/10 mb-6" style={{ paddingBottom: "46%", minHeight: 160 }}>
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-          <div className="w-14 h-14 rounded-full bg-sage/20 border border-sage flex items-center justify-center text-sage">
-            <MapIcon />
-          </div>
-          <p className="text-white/50 text-sm font-light tracking-wide">
-            Nhấn bên dưới để mở bản đồ
-          </p>
+      {venue.embedUrl ? (
+        <div className="relative overflow-hidden border border-white/10 mb-6" style={{ paddingBottom: "75%", minHeight: 220 }}>
+          <iframe
+            src={venue.embedUrl}
+            className="absolute inset-0 w-full h-full"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+            title={`Bản đồ ${venue.label}`}
+          />
         </div>
-      </div>
+      ) : (
+        /* Map preview placeholder — sẽ thay bằng iframe khi có link "Embed a map" từ Google Maps */
+        <div className="relative overflow-hidden bg-sage-deep/40 border border-white/10 mb-6" style={{ paddingBottom: "46%", minHeight: 160 }}>
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+            <div className="w-14 h-14 rounded-full bg-sage/20 border border-sage flex items-center justify-center text-sage">
+              <MapIcon />
+            </div>
+            <p className="text-white/50 text-sm font-light tracking-wide">
+              Nhấn bên dưới để mở bản đồ
+            </p>
+          </div>
+        </div>
+      )}
 
       <a
         href={venue.mapUrl}

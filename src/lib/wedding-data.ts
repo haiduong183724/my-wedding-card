@@ -13,13 +13,19 @@ export const WEDDING = {
       label: "Nhà Trai",
       name: "Gia đình Nguyễn Đình Hải Dương",
       address: "Xem chi tiết tại Google Maps",
-      mapUrl: "https://maps.app.goo.gl/HJtB3MeA1mEqV8e5A",
+      mapUrl:
+        "https://www.google.com/maps/search/?api=1&query=thon%20g%E1%BA%A7n%20T%E1%BA%A3o%20D%C6%B0%C6%A1ng%2C%20X%C3%A3%20D%C3%A2n%20H%C3%B2a%2C%20D%C3%A2n%20H%C3%B2a%2C%20H%C3%A0%20N%E1%BB%99i",
+      embedUrl:
+        "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d329.6821507906559!2d105.77701097957932!3d20.794210604689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zdGhvbiBn4bqnbiBU4bqjbyBExrDGoW5nLCBYw6MgRMOibiBIw7JhLCBEw6JuIEjDsmEsIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1784086982724!5m2!1svi!2s",
     },
     bride: {
       label: "Nhà Gái",
       name: "Gia đình Phạm Thị Trà My",
       address: "Xem chi tiết tại Google Maps",
-      mapUrl: "https://maps.app.goo.gl/HJtB3MeA1mEqV8e5A",
+      mapUrl:
+        "https://www.google.com/maps/search/?api=1&query=148%20P.%20T%E1%BA%A3o%20D%C6%B0%C6%A1ng%2C%20T%E1%BA%A3o%20D%C6%B0%C6%A1ng%2C%20D%C3%A2n%20H%C3%B2a%2C%20H%C3%A0%20N%E1%BB%99i%2C%20Vi%E1%BB%87t%20Nam",
+      embedUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d932.4894946834266!2d105.77929686962516!3d20.792987852557452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31344b2d6e34680b%3A0x91539f7af657eac3!2zMTQ4IFAuIFThuqNvIETGsMahbmcsIFThuqNvIETGsMahbmcsIETDom4gSMOyYSwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1784087242842!5m2!1svi!2s",
     },
   },
 };

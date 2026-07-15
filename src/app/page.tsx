@@ -9,7 +9,6 @@ import Countdown from "@/components/Countdown";
 import Timeline from "@/components/Timeline";
 import Gallery from "@/components/Gallery";
 import WeddingCalendar from "@/components/WeddingCalendar";
-import GiftSection from "@/components/GiftSection";
 import Contact from "@/components/Contact";
 import MapSection from "@/components/MapSection";
 import RSVPSection from "@/components/RSVPSection";
@@ -44,7 +43,6 @@ export default function Home() {
         <Countdown />
         <Timeline />
         <Gallery />
-        <GiftSection />
         <Contact />
         <MapSection />
         <RSVPSection />
